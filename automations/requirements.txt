@@ -1,0 +1,2 @@
+# Tento projekt vyžaduje Home Assistant s integráciou PyScript
+# Viac info: https://github.com/custom-components/pyscript
