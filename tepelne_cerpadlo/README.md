@@ -1,31 +1,31 @@
 
 # COP.py
-Účel: Výpočet okamžitého koeficientu účinnosti (COP).
+* Účel: Výpočet okamžitého koeficientu účinnosti (COP).
 
-Využíva kalorimetrickú rovnicu na výpočet tepelného výkonu z prietoku a rozdielu teplôt (Delta T) a následne ho porovnáva s elektrickým príkonom.
+* Využíva kalorimetrickú rovnicu na výpočet tepelného výkonu z prietoku a rozdielu teplôt (Delta T) a následne ho porovnáva s elektrickým príkonom.
 
-Funkcie: Obsahuje softvérový "clamping" (ohraničenie hodnôt 0-8) a filtráciu pri nízkom príkone pod 200W.
+* Funkcie: Obsahuje softvérový "clamping" (ohraničenie hodnôt 0-8) a filtráciu pri nízkom príkone pod 200W.
 
 # Defrost_count.py
-Účel: Inteligentné počítadlo odmrazovacích cyklov.
+* Účel: Inteligentné počítadlo odmrazovacích cyklov.
 
-Logika: Započítava defrost len v prípade, že je potvrdený fyzikálnymi veličinami (záporná Delta T a aktívny kompresor) a trvá dlhšie ako 90 sekúnd.
+* Logika: Započítava defrost len v prípade, že je potvrdený fyzikálnymi veličinami (záporná Delta T a aktívny kompresor) a trvá dlhšie ako 90 sekúnd.
 
-Prínos: Eliminuje falošné detekcie a pomáha sledovať efektivitu stroja pri nízkych vonkajších teplotách.
+* Prínos: Eliminuje falošné detekcie a pomáha sledovať efektivitu stroja pri nízkych vonkajších teplotách.
 
 # Kompresor_count.py
-Účel: Sledovanie počtu štartov a cyklovania kompresora.
+* Účel: Sledovanie počtu štartov a cyklovania kompresora.
 
-Logika: Reaguje na binárny senzor prevádzky, ktorý využíva 10-minútový filter (delay_off) na odfiltrovanie krátkodobých technologických prestávok.
+* Logika: Reaguje na binárny senzor prevádzky, ktorý využíva 10-minútový filter (delay_off) na odfiltrovanie krátkodobých technologických prestávok.
 
-Prínos: Kľúčový ukazovateľ pre diagnostiku správneho nadimenzovania systému a ochranu životnosti kompresora.
+* Prínos: Kľúčový ukazovateľ pre diagnostiku správneho nadimenzovania systému a ochranu životnosti kompresora.
 
 # Tepelna_strata_domu.py
-Účel: Výpočet okamžitej tepelnej straty objektu vo Wattoch.
+* Účel: Výpočet okamžitej tepelnej straty objektu vo Wattoch.
 
-Logika: Pracuje s koeficientom prestupu tepla (H) a rozdielom medzi vonkajšou teplotou a priemerom z viacerých vnútorných senzorov.
+* Logika: Pracuje s koeficientom prestupu tepla (H) a rozdielom medzi vonkajšou teplotou a priemerom z viacerých vnútorných senzorov.
 
-Prínos: Umožňuje porovnať reálnu stratu domu s výkonom, ktorý dodáva kúrenie.
+* Prínos: Umožňuje porovnať reálnu stratu domu s výkonom, ktorý dodáva kúrenie.
 
 # Inštalácia
 Skripty sú určené pre integráciu PyScript v Home Assistante.
