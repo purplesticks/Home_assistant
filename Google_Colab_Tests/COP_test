@@ -5,10 +5,7 @@ test_t_vstup = 30.2           # Teplota vratnej vody
 test_prikon_w = 1200          # Aktuálna spotreba elektriny v W
 
 def simulacia_aktualizuj_cop(prietok_m3h, t_vystup, t_vstup, prikon_w):
-    """
-    Tento skript počíta aktuálnu účinnosť tepelného čerpadla (COP).
-    Využíva fyzikálny vzorec pre tepelný výkon: Q = m * c * ΔT
-    """
+
     # KONŠTANTY
     RHO = 1000  # Hustota vody (kg/m3)
     CP = 4186   # Špecifická tepelná kapacita vody (J/kg.K)
