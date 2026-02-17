@@ -1,0 +1,39 @@
+# --- SIMULÁCIA VSTUPOV (Tu si meň čísla na testovanie) ---
+test_prietok_m3h = 1.2        # Prietok v m3 za hodinu
+test_t_vystup = 35.5          # Teplota vody do kúrenia
+test_t_vstup = 30.2           # Teplota vratnej vody
+test_prikon_w = 1200          # Aktuálna spotreba elektriny v W
+
+def simulacia_aktualizuj_cop(prietok_m3h, t_vystup, t_vstup, prikon_w):
+    """
+    Tento skript počíta aktuálnu účinnosť tepelného čerpadla (COP).
+    Využíva fyzikálny vzorec pre tepelný výkon: Q = m * c * ΔT
+    """
+    # KONŠTANTY
+    RHO = 1000  # Hustota vody (kg/m3)
+    CP = 4186   # Špecifická tepelná kapacita vody (J/kg.K)
+    
+    # VÝPOČET TEPELNÉHO VÝKONU (W)
+    prietok_m3s = prietok_m3h / 3600
+    delta_t = t_vystup - t_vstup
+    tepelny_vykon_w = RHO * CP * prietok_m3s * delta_t
+    
+    # LOGIKA VÝPOČTU COP
+    if prikon_w > 200:
+        vypocitane_cop = tepelny_vykon_w / prikon_w
+        
+        # Clamping (limitácia rozsahu 0-8)
+        finalne_cop = max(0, min(vypocitane_cop, 8))
+        finalne_cop = round(finalne_cop, 2)
+    else:
+        finalne_cop = 0.0
+
+    # VÝSTUP (Namiesto state.set použijeme print pre Colab)
+    print(f"--- VÝSLEDKY SIMULÁCIE ---")
+    print(f"Delta T: {round(delta_t, 2)} °C")
+    print(f"Tepelný výkon: {round(tepelny_vykon_w / 1000, 2)} kW")
+    print(f"Príkon: {prikon_w} W")
+    print(f"Výsledné COP: {finalne_cop}")
+
+# SPUSTENIE FUNKCIE
+simulacia_aktualizuj_cop(test_prietok_m3h, test_t_vystup, test_t_vstup, test_prikon_w)
